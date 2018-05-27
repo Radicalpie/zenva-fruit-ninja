@@ -97,6 +97,28 @@ FruitNinja.LevelState.prototype.check_collision = function (object) {
     line3 = new Phaser.Line(object_rectangle.right, object_rectangle.top, object_rectangle.right, object_rectangle.bottom);
     line4 = new Phaser.Line(object_rectangle.right, object_rectangle.bottom, object_rectangle.left, object_rectangle.bottom);
     intersection = this.swipe.intersects(line1) || this.swipe.intersects(line2) || this.swipe.intersects(line3) || this.swipe.intersects(line4);
+    
+    /* var graphics=game.add.graphics(0,0);
+    graphics.lineStyle(10, 0xffd900, 1);
+    graphics.moveTo(line1.start.x,line1.start.y);//moving position of graphic if you draw mulitple lines
+    graphics.lineTo(line1.end.x,line1.end.y);
+    graphics.endFill();
+
+    graphics.lineStyle(10, 0xfff900, 1);
+    graphics.moveTo(line2.start.x,line2.start.y);//moving position of graphic if you draw mulitple lines
+    graphics.lineTo(line2.end.x,line2.end.y);
+    graphics.endFill();
+
+    graphics.lineStyle(10, 0xffd970, 1);
+    graphics.moveTo(line3.start.x,line3.start.y);//moving position of graphic if you draw mulitple lines
+    graphics.lineTo(line3.end.x,line3.end.y);
+    graphics.endFill();
+    
+    graphics.lineStyle(10, 0xffd966, 1);
+    graphics.moveTo(line4.start.x,line4.start.y);//moving position of graphic if you draw mulitple lines
+    graphics.lineTo(line4.end.x,line4.end.y);
+    graphics.endFill(); */
+    
     if (intersection) {
         // if an intersection is found, cut the object
         object.cut();
