@@ -63,15 +63,21 @@ FruitNinja.LevelState.prototype.create = function () {
     this.dead = null;
 };
 FruitNinja.LevelState.prototype.addDead = function (sprite, event){
-    if (!this.uiBlocked && this.dead === null){
-        this.deadX = this.game.world.centerX;
-        this.deadY = this.game.world.centerY;
-        this.dead = this.game.add.sprite(this.deadX, this.deadY, 'dead_image')
-        this.dead.scale.setTo(0.5);
-        this.dead.inputEnabled = true;
-        this.dead.input.enableDrag();
-        this.dead.events.onDragStart.add(onDragStart, this);
-        this.dead.events.onDragStop.add(onDragStop, this);
+    if (!this.uiBlocked) {
+        if (this.dead === null) {
+            this.deadX = this.game.world.centerX;
+            this.deadY = this.game.world.centerY;
+            this.dead = this.game.add.sprite(this.deadX, this.deadY, 'dead_image')
+            this.dead.scale.setTo(0.5);
+            this.dead.inputEnabled = true;
+            this.dead.input.enableDrag();
+            this.dead.events.onDragStart.add(onDragStart, this);
+            this.dead.events.onDragStop.add(onDragStop, this);
+        }
+        else {
+            this.dead.destroy();
+            this.dead = null;
+        }
     }
 }
 
