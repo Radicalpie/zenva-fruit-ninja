@@ -53,7 +53,6 @@ FruitNinja.LevelState.prototype.create = function () {
     // add events to check for swipe
     this.game.input.onDown.add(this.start_swipe, this);
     this.game.input.onUp.add(this.end_swipe, this);
-    
     this.init_hud();
 };
 
@@ -91,7 +90,7 @@ FruitNinja.LevelState.prototype.check_collision = function (object) {
     "use strict";
     var object_rectangle, line1, line2, line3, line4, intersection;
     // create a rectangle for the object body
-    object_rectangle = new Phaser.Rectangle(object.body.x, object.body.y, object.body.width, object.body.height);
+    object_rectangle = new Phaser.Rectangle(object.body.x, object.body.y, object.body.width*5, object.body.height*5);
     // check for intersections with each rectangle edge
     line1 = new Phaser.Line(object_rectangle.left, object_rectangle.bottom, object_rectangle.left, object_rectangle.top);
     line2 = new Phaser.Line(object_rectangle.left, object_rectangle.top, object_rectangle.right, object_rectangle.top);

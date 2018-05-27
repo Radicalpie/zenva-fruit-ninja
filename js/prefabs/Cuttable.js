@@ -5,7 +5,6 @@ FruitNinja.Cuttable = function (game_state, name, position, properties) {
     FruitNinja.Prefab.call(this, game_state, name, position, properties);
     
     this.anchor.setTo(0.5);
-    this.scale.setTo(5);
     
     this.game_state.game.physics.arcade.enable(this);
     
