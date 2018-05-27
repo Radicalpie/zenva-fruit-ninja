@@ -1,6 +1,5 @@
 {
     "assets": {
-        "dead_image": {"type": "image", "source": "assets/images/dead.png"},
         "bomb_image": {"type": "image", "source": "assets/images/bomb.png"},
         "background_image": {"type": "image", "source": "assets/images/background.png"},
         "fruits_spritesheet": {"type": "spritesheet", "source": "assets/images/fruits.png", "frame_width": 100, "frame_height": 133, "frames": 8, "margin": 1, "spacing": 1}
