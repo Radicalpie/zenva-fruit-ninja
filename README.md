@@ -19,6 +19,15 @@
 Как да си подкараме играта?
 -----------
 
+Сваляте си сорс кода от GitHub:
+![source](https://github.com/niWiki/zenva-fruit-ninja/blob/master/Screen%20Shot%202018-05-29%20at%200.38.34.png)
+
+След като го разархивираме, отваряме конзолка в папката game или work, която игра искаме да подкараме. Ако нямаме инсталиран [node http-server](https://www.npmjs.com/package/http-server#installing-globally), го инсталираме и пускаме с командата:
+
+`http-server`
+
+В конзолата виждаме на кой адрес работи сайтът ни и го отваряме.
+
 Какво сме написали до сега?
 -----------
 ### Състояния на играта (Game States)
