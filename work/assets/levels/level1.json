@@ -1,7 +1,7 @@
 {
     "assets": {
         "bomb_image": {"type": "image", "source": "assets/images/bomb.png"},
-        "background_image": {"type": "image", "source": "assets/images/background.png"},
+        "background_image": {"type": "image", "source": "assets/images/background.jpeg"},
         "fruits_spritesheet": {"type": "spritesheet", "source": "assets/images/fruits.png", "frame_width": 100, "frame_height": 133, "frames": 8, "margin": 1, "spacing": 1}
     },
     "groups": [
