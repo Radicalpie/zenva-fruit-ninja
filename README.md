@@ -62,7 +62,7 @@
 ### Разрешаване на движението на мишката
 Първо ще разрешим интеракцията на потребителя с мишката, което става по следния начин:
 
-```
+```javascript
 // add events to check for swipe
 this.game.input.onDown.add(this.start_swipe, this);
 this.game.input.onUp.add(this.end_swipe, this);
@@ -71,7 +71,7 @@ this.game.input.onUp.add(this.end_swipe, this);
 ### Засичане на удара ни
 За да изчислим какъв е ударът ни ще използваме следната стратегия:
 * Когато човек натисне мишката, запазваме позицията й като начална точка:
-```
+```javascript
 FruitNinja.LevelState.prototype.start_swipe = function (pointer) {
     "use strict";
     this.start_swipe_point = new Phaser.Point(pointer.x, pointer.y);
@@ -80,7 +80,7 @@ FruitNinja.LevelState.prototype.start_swipe = function (pointer) {
 * Когато играчът отпусне мишката ще запазим позицията й като крайна точка.
 * Ако разстоянието между началната и крайната точки е по-голямо от минималното определящо удар (ние сме си го избрали), значи имаме такъв и изрисуваме една линия, за да го отбележим. За целта имаме още един обект, който просто ще изрисува тази линия.
 
-```
+```javascript
 FruitNinja.LevelState.prototype.end_swipe = function (pointer) {
     "use strict";
     var swipe_length, cut_style, cut;
@@ -102,7 +102,7 @@ FruitNinja.LevelState.prototype.end_swipe = function (pointer) {
 Остава да разберем дали сме уцелили плодче или бомба.
 В метода `check_collision` ще проверяваме за пресичане между линията на удара ни и всеки от живите плодчета и бомби. За целта рисуваме правоъгълничета около обектите, които са на екрана и проверяваме дали има пресичане. Всичко това го има вградено във phaser, така че ние само го използваме.
 
-```
+```javascript
 FruitNinja.LevelState.prototype.check_collision = function (object) {
     "use strict";
     var object_rectangle, line1, line2, line3, line4, intersection;
@@ -122,7 +122,7 @@ FruitNinja.LevelState.prototype.check_collision = function (object) {
 ```
 
 За да можем да разберем по-добре как работи, може да оцветим всяко правоъгълниче и да видим какво се случва на екрана:
-```
+```javascript
 var graphics=game.add.graphics(0,0);
 graphics.lineStyle(10, 0xffd900, 1);
 graphics.moveTo(line1.start.x,line1.start.y);//moving position of graphic if you draw mulitple lines
@@ -155,12 +155,12 @@ graphics.endFill();
 Видяхме как можем да използваме мишката, за да "разсичаме" екрана, но с нея може да правим още нещо - може да "влачим" (drag) разни обекти по екрана. За да видим как става това във phaser, нека добавим малко трудност в играта - бутонче "dead trap". Това бутонче ще слага в центъра на екрана смъртоносен капан, който ще може да влачим с мишката и да го поставяме където искаме в света на играта. Ако, докато разсичаме насам-натам, го уцелим ще умрем. Натискайки бутончето той ще изчезне. 
 
 За целта ще си добавим един нов спрайт:
-```
+```javascript
 "dead_image": {"type": "image", "source": "assets/images/dead.png"},
 ```
 
 Ще го създадем и ще кажем, че искаме да му е разрешена интеракцията с потребителя - тоест да може да се натиска. Като се натисне ще извикаме метод, който ще добави смъртоносния капан:
-```
+```javascript
 var deadBtn = this.game.add.sprite(200, 15, 'dead_image');
 deadBtn.scale.setTo(0.2);
 deadBtn.inputEnabled = true;
@@ -171,7 +171,7 @@ this.dead = null;
 
 Тъй като капанът ще е един за цялата игра, ще си го създадем тук като нулев. Когато го добавим на екрана в метода за добавяне, няма да е вече нула и така ще знаем кога имаме на екрана капан и кога не:
 
-```
+```javascript
 FruitNinja.LevelState.prototype.addDead = function (sprite, event){
 if (!this.uiBlocked) {
   if (this.dead === null) {
@@ -192,7 +192,7 @@ if (!this.uiBlocked) {
 }
 ```
 Като го създаваме казваме изрично, че той може да бъде "влачен от мишката" и показваме кои методи да се изпълнят, когато започне и когато спре "влаченето":
-```
+```javascript
 function onDragStart(sprite, pointer) {
   this.uiBlocked = true;
 }
@@ -204,7 +204,7 @@ function onDragStop(sprite, pointer) {
 }
 ```
 Виждате, че имаме една променлива, която използваме, за да разберем дали нещо се случва по екрана или не. Идеята е, че не искаме да може хем да владим капана, хем да удряме. За това, докато влаюим казваме, че екранът е блокиран и добавяме проверка за това в методите за начало и край на удара:
-```
+```javascript
     if (this.uiBlocked){
         return;
     }
@@ -212,7 +212,7 @@ function onDragStop(sprite, pointer) {
 
 Сега остава да проверим дали имаме пресичане на нашите удари с капана. За целта добавяме още една проверка за пресичане, този път с обект, който има размерите и координатите на нашия капан. А координатите знаем от метода, който се вика в края на влаченето, където ги запазихме.
 
-```
+```javascript
 if (this.dead != null) {
             var that = this;
             this.check_collision(
