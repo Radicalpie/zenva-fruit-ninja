@@ -20,13 +20,23 @@
 -----------
 
 Сваляме си сорс кода от GitHub:
+
 ![source](https://github.com/niWiki/zenva-fruit-ninja/blob/master/Screen%20Shot%202018-05-29%20at%200.38.34.png)
 
-След като го разархивираме, отваряме конзолка в папката game или work, която игра искаме да подкараме. Ако нямаме инсталиран [node http-server](https://www.npmjs.com/package/http-server#installing-globally), го инсталираме и пускаме с командата:
+След като го разархивираме, отваряме конзолка в папката game или work, която игра искаме да подкараме. Ако нямаме инсталиран [node http-server](https://www.npmjs.com/package/http-server#installing-globally), го инсталираме
+
+![install](https://github.com/niWiki/zenva-fruit-ninja/blob/master/install.PNG)
+
+и пускаме с командата:
 
 `http-server`
 
-В конзолата виждаме на кой адрес работи сайтът ни и го отваряме.
+В конзолата виждаме на кой адрес работи сайтът ни и го отваряме:
+
+![run](https://github.com/niWiki/zenva-fruit-ninja/blob/master/run.PNG)
+
+![game](https://github.com/niWiki/zenva-fruit-ninja/blob/master/game.PNG)
+
 
 Какво сме написали до сега?
 -----------
