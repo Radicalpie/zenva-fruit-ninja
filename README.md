@@ -97,9 +97,6 @@ FruitNinja.LevelState.prototype.start_swipe = function (pointer) {
 ```javascript
 FruitNinja.LevelState.prototype.end_swipe = function (pointer) {
     "use strict";
-    if (this.uiBlocked){
-        return;
-    }
     var swipe_length, cut_style, cut;
     this.end_swipe_point = new Phaser.Point(pointer.x, pointer.y);
     swipe_length = Phaser.Point.distance(this.end_swipe_point, this.start_swipe_point);
@@ -111,8 +108,6 @@ FruitNinja.LevelState.prototype.end_swipe = function (pointer) {
         this.swipe = new Phaser.Line(this.start_swipe_point.x, this.start_swipe_point.y, this.end_swipe_point.x, this.end_swipe_point.y);
         this.groups.fruits.forEachAlive(this.check_collision, this);
         this.groups.bombs.forEachAlive(this.check_collision, this);
-         this.check_collision(
-                {"body": {"x": this.deadX, "y": this.deadY,"width": 25, "height":30}, "cut": that.game_over, "game": that.game, "level_data": that.level_data});
     }
 };
 ```
